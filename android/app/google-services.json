@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "212225514197",
+    "firebase_url": "https://fir-example-adf-1d5a1-default-rtdb.firebaseio.com",
+    "project_id": "fir-example-adf-1d5a1",
+    "storage_bucket": "fir-example-adf-1d5a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:212225514197:android:6f57ab73be71affed9e05c",
+        "android_client_info": {
+          "package_name": "br.com.academiadoflutter.flutter_firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "212225514197-tfm21u03hmt2ijk1n4jl0pe1ths7vghs.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWUTMeTGv5wAwpVafyp3ZuTuTLopNo6mc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "212225514197-tfm21u03hmt2ijk1n4jl0pe1ths7vghs.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
