@@ -18,13 +18,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primaryColor: Colors.blue,
-        primarySwatch: Colors.blue,
+        // primaryColor: Colors.blue,
+        // primarySwatch: Colors.blue,
         floatingActionButtonTheme:
             const FloatingActionButtonThemeData(backgroundColor: Colors.blue),
         appBarTheme: const AppBarTheme(
-          color: Colors.blue,
-          titleTextStyle: TextStyle(color: Colors.white, fontSize: 24),
+          // color: Colors.blue,
+          titleTextStyle: TextStyle(color: Colors.black, fontSize: 24),
         ),
       ),
       routes: {

@@ -19,11 +19,6 @@ class _LoginPageState extends State<LoginPage> {
     super.dispose();
   }
 
-  Future<void> registerUser() async {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _emailnEC.text, password: _senhaEC.text);
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,16 +44,16 @@ class _LoginPageState extends State<LoginPage> {
               ),
               const SizedBox(height: 50),
               ElevatedButton(
-                onPressed: registerUser,
+                onPressed: loginUser,
                 child: const Text(
                   'Login',
                 ),
               ),
               const SizedBox(height: 20),
               TextButton(
-                onPressed: (){
+                onPressed: () {
                   Navigator.of(context)
-                    .pushNamed('/auth/email_password/register');
+                      .pushNamed('/auth/email_password/register');
                 },
                 child: const Text("Não tem cadastro?"),
               ),
@@ -67,5 +62,10 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
+  }
+
+  Future<void> loginUser() async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailnEC.text, password: _senhaEC.text);
   }
 }

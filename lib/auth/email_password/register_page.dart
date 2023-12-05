@@ -42,6 +42,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   label: Text('Senha'),
                 ),
               ),
+              const SizedBox(height: 50),
               ElevatedButton(
                 onPressed: registerUser,
                 child: const Text(
