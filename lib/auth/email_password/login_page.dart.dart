@@ -1,14 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _LoginPageState extends State<LoginPage> {
   final _emailnEC = TextEditingController();
   final _senhaEC = TextEditingController();
 
@@ -19,11 +19,16 @@ class _RegisterPageState extends State<RegisterPage> {
     super.dispose();
   }
 
+  Future<void> registerUser() async {
+    await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: _emailnEC.text, password: _senhaEC.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cadastro de Usuário'),
+        title: const Text('Login de Usuário'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -42,21 +47,25 @@ class _RegisterPageState extends State<RegisterPage> {
                   label: Text('Senha'),
                 ),
               ),
+              const SizedBox(height: 50),
               ElevatedButton(
                 onPressed: registerUser,
                 child: const Text(
-                  'Cadastrar Usuário',
+                  'Login',
                 ),
+              ),
+              const SizedBox(height: 20),
+              TextButton(
+                onPressed: (){
+                  Navigator.of(context)
+                    .pushNamed('/auth/email_password/register');
+                },
+                child: const Text("Não tem cadastro?"),
               ),
             ],
           ),
         ),
       ),
     );
-  }
-
-  Future<void> registerUser() async {
-    await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _emailnEC.text, password: _senhaEC.text);
   }
 }

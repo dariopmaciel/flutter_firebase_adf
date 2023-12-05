@@ -1,6 +1,6 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase/auth/email_password/login_page.dart.dart';
 import 'package:flutter_firebase/auth/email_password/register_page.dart';
 import 'package:flutter_firebase/firebase_options.dart';
 
@@ -27,7 +27,10 @@ class MyApp extends StatelessWidget {
           titleTextStyle: TextStyle(color: Colors.white, fontSize: 24),
         ),
       ),
-      routes: {'/auth/email_password/register': (_) => const RegisterPage()},
+      routes: {
+        '/auth/email_password/register': (_) => const RegisterPage(),
+        '/auth/email_password/login': (_) => const LoginPage(),
+      },
       home: const MyHomePage(
         title: 'Home Page',
       ),
@@ -53,11 +56,17 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context)
-                    .pushNamed('/auth/email_password/register');
+                Navigator.of(context).pushNamed('/auth/email_password/login');
               },
-              child: const Text("Register User E-mail Password"),
+              child: const Text("Login do Usuário"),
             ),
+            // ElevatedButton(
+            //   onPressed: () {
+            //     Navigator.of(context)
+            //         .pushNamed('/auth/email_password/register');
+            //   },
+            //   child: const Text("Register User E-mail Password"),
+            // ),
           ],
         ),
       ),
