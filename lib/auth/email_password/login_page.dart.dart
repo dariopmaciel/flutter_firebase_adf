@@ -68,10 +68,27 @@ class _LoginPageState extends State<LoginPage> {
     final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: _emailnEC.text, password: _senhaEC.text);
 
-    print(credential.user);
-    print(credential.user?.displayName);
-    print(credential.user?.email);
-    print(credential.user?.emailVerified);
-    print(credential.user?.metadata);
+    final user = credential.user;
+    String message = '';
+    //se email não verificado email não verificado
+    if (user != null && !user.emailVerified) {
+      message = "Valide seu e-mail de acesso";
+    } else {
+      message = "Email validado com sucesso";
+    }
+
+    await user?.updateDisplayName("CACO");
+    // ignore: use_build_context_synchronously
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+      ),
+    );
+
+    // print("Mais METADATA: ${credential.user}");
+    print("Nome cadastrado: ${credential.user?.displayName}");
+    print("E-mail: ${credential.user?.email}");
+    print("verificação de e-mail:  ${credential.user?.emailVerified}");
+    // print("Data de criação da conta e Data do último acesso: ${credential.user?.metadata}");
   }
 }
