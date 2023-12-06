@@ -77,6 +77,7 @@ class _LoginPageState extends State<LoginPage> {
       message = "Email validado com sucesso";
     }
 
+    //UPDATE de usuário e senha
     await user?.updateDisplayName("CACO");
     // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(

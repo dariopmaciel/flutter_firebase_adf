@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_firebase/auth/email_password/login_page.dart.dart';
 import 'package:flutter_firebase/auth/email_password/register_page.dart';
+import 'package:flutter_firebase/auth/show_user.dart';
 import 'package:flutter_firebase/firebase_options.dart';
 import 'package:flutter_firebase/home_page.dart';
 
@@ -9,6 +11,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
+  //não persiste login
+  //cada vez que sair do app ele se deslogará!!!
+  await FirebaseAuth.instance.setPersistence(Persistence.NONE);
 }
 
 class MyApp extends StatelessWidget {
@@ -30,9 +35,10 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/home_page',
       routes: {
-        '/home_page' : (_) => const HomePage(),
-        '/auth/email_password/register': (_) => const RegisterPage(),
+        '/home_page': (_) => const HomePage(),
         '/auth/email_password/login': (_) => const LoginPage(),
+        '/auth/email_password/register': (_) => const RegisterPage(),
+        '/auth/show_user': (_) => const ShowUser(),
       },
       // home: const MyHomePage(title: 'Home Page'),
     );
